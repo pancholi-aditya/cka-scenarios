@@ -16,17 +16,18 @@ Create a **Horizontal Pod Autoscaler** named **`apache-server`** in the **`auto-
 
 Check whether an HPA already exists:
 
-````plain
+```plain
 kubectl get hpa -n auto-scale
-```{}
+```
 
 Inspect the target Deployment and its resource requests:
 
 ```plain
 kubectl get deployment apache-server -n auto-scale -o yaml
-```{}
+```
 
 If CPU requests are missing, autoscaling will not work.
+
 </details>
 
 ---
@@ -37,9 +38,11 @@ If CPU requests are missing, autoscaling will not work.
 Horizontal Pod Autoscalers rely on **metrics-server** and container resource requests.
 
 Ensure:
+
 - CPU **requests** are defined for the container
 - The Deployment name and namespace are correct
 - CPU utilization is specified as a **percentage**
+
 </details>
 
 ---
@@ -48,10 +51,12 @@ Ensure:
 <summary><strong>Tip 2</strong></summary>
 
 You may create the HPA using:
+
 - An **imperative command**, or
 - A **declarative YAML manifest**
 
 Both approaches are valid as long as the final HPA configuration meets the requirements.
+
 </details>
 
 ---
@@ -67,14 +72,44 @@ kubectl autoscale deployment apache-server \
   --min=1 \
   --max=10 \
   -n auto-scale
-```{}
+```
 
 Verify that the HPA is created:
 
 ```plain
 kubectl get hpa apache-server -n auto-scale
-```{}
+```
+
+Or use declarative way:
+
+```plain
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: apache-server
+  namespace: auto-scale
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: apache-server
+  minReplicas: 1
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 50
+```
+
+Apply it using:
+
+```plain
+kubectl apply -f hpa.yaml
+```
 
 The HPA should now target the `apache-server` Deployment and scale based on **50% CPU utilization**.
+
 </details>
-````
