@@ -1,0 +1,36 @@
+{
+  "title": "Install Argo CD Using Helm",
+  "description": "Render and install Argo CD Helm chart without installing CRDs",
+  "difficulty": "intermediate",
+  "time": "20 minutes",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Add Argo CD Helm repository",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Render Helm templates",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      },
+      {
+        "title": "Install Argo CD",
+        "text": "step3/text.md",
+        "verify": "step3/verify.sh"
+      },
+      {
+        "title": "Verify Argo CD installation",
+        "text": "step4/text.md",
+        "verify": "step4/verify.sh"
+      }
+    ]
+  },
+  "backend": {
+    "imageid": "kubernetes"
+  }
+}
