@@ -11,7 +11,8 @@ Reconfigure the existing **front-end** Deployment so that the **nginx container 
 
 ---
 
-## Solution
+<details>
+<summary><strong>Solution</strong></summary>
 
 Edit the existing Deployment:
 
@@ -31,3 +32,5 @@ spec:
             - containerPort: 80
               protocol: TCP
 ```
+
+</details>

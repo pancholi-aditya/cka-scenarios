@@ -8,7 +8,7 @@ apiVersion: scheduling.k8s.io/v1
 kind: PriorityClass
 metadata:
   name: medium-priority
-value: 1000
+value: 10000000000000
 globalDefault: false
 description: "Existing user-defined priority"
 EOF
