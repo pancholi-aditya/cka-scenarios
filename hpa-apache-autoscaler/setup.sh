@@ -1,14 +1,38 @@
 #!/bin/bash
-
 set -e
 
-kubectl create namespace auto-scale || true
+# Create namespace
+kubectl create namespace auto-scale --dry-run=client -o yaml | kubectl apply -f -
 
-kubectl -n auto-scale create deployment apache-server \
-  --image=nginx \
-  --replicas=1
+# Create Deployment
+kubectl -n auto-scale apply -f - <<EOF
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apache-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apache
+  template:
+    metadata:
+      labels:
+        app: apache
+    spec:
+      containers:
+      - name: apache
+        image: httpd:2.4
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: "100m"
+          limits:
+            cpu: "200m"
+EOF
 
-kubectl -n auto-scale set resources deployment apache-server \
-  --requests=cpu=100m \
-  --limits=cpu=200m
+# Ensure metrics-server is available (usually pre-installed)
+kubectl wait --for=condition=Available deployment/metrics-server \
+  -n kube-system --timeout=120s || true
 
