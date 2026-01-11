@@ -1,0 +1,21 @@
+{
+  "title": "Configure Default StorageClass",
+  "description": "Create and configure a default StorageClass using local-path provisioner",
+  "difficulty": "intermediate",
+  "time": "10 minutes",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Create and configure StorageClass",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      }
+    ]
+  },
+  "backend": {
+    "imageid": "kubernetes"
+  }
+}
