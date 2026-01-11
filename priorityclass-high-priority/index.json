@@ -1,0 +1,31 @@
+{
+  "title": "PriorityClass Creation and Deployment Update",
+  "description": "Create a PriorityClass and apply it to an existing Deployment",
+  "difficulty": "advanced",
+  "time": "15 minutes",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Create high-priority PriorityClass",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Patch Deployment to use PriorityClass",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      },
+      {
+        "title": "Verify rollout success",
+        "text": "step3/text.md",
+        "verify": "step3/verify.sh"
+      }
+    ]
+  },
+  "backend": {
+    "imageid": "kubernetes"
+  }
+}
