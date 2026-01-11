@@ -1,0 +1,31 @@
+{
+  "title": "Add Sidecar Container with Shared Volume",
+  "description": "Update an existing Deployment by adding a sidecar container to tail logs",
+  "difficulty": "intermediate",
+  "time": "15 minutes",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Add shared volume and mount to main container",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Add sidecar container",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      },
+      {
+        "title": "Verify sidecar log access",
+        "text": "step3/text.md",
+        "verify": "step3/verify.sh"
+      }
+    ]
+  },
+  "backend": {
+    "imageid": "kubernetes"
+  }
+}
