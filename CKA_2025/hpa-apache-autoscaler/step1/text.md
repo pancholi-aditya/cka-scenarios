@@ -66,7 +66,7 @@ Both approaches are valid as long as the final HPA configuration meets the requi
 
 Create the Horizontal Pod Autoscaler using an imperative command:
 
-```plain
+```bash
 kubectl autoscale deployment apache-server \
   --cpu-percent=50 \
   --min=1 \
@@ -76,13 +76,13 @@ kubectl autoscale deployment apache-server \
 
 Verify that the HPA is created:
 
-```plain
+```bash
 kubectl get hpa apache-server -n auto-scale
 ```
 
 Or use declarative way:
 
-```plain
+```yaml
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
@@ -96,17 +96,17 @@ spec:
   minReplicas: 1
   maxReplicas: 10
   metrics:
-  - type: Resource
-    resource:
-      name: cpu
-      target:
-        type: Utilization
-        averageUtilization: 50
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 50
 ```
 
 Apply it using:
 
-```plain
+```bash
 kubectl apply -f hpa.yaml
 ```
 
