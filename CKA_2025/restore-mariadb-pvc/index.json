@@ -1,0 +1,31 @@
+{
+  "title": "Restore MariaDB Deployment with PVC",
+  "description": "Recover a deleted MariaDB Deployment using an existing PersistentVolume",
+  "difficulty": "intermediate",
+  "time": "20 minutes",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Create PersistentVolumeClaim",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Update Deployment to use PVC",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      },
+      {
+        "title": "Apply and verify Deployment",
+        "text": "step3/text.md",
+        "verify": "step3/verify.sh"
+      }
+    ]
+  },
+  "backend": {
+    "imageid": "kubernetes"
+  }
+}
