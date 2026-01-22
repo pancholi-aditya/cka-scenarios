@@ -1,0 +1,13 @@
+{
+  "title": "CKA – User and RBAC Configuration",
+  "description": "Create a new user using CSR and grant Pod permissions via RBAC.",
+  "difficulty": "intermediate",
+  "time": "12 minutes",
+  "steps": [
+    {
+      "title": "Create user and configure RBAC",
+      "text": "step1/text.md",
+      "verify": "step1/verify.sh"
+    }
+  ]
+}
