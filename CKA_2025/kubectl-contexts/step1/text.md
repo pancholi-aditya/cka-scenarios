@@ -20,8 +20,8 @@ You must work with the kubeconfig contexts available on this system.
 
 3. Write another command that displays the **current context without using kubectl** to:
    `bash
- /opt/course/1/context_default_no_kubectl.sh
- `
+/opt/course/1/context_default_no_kubectl.sh
+`
    Each file must contain **only the required command or output**, nothing extra.
 
 ---
