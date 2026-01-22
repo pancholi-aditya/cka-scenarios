@@ -1,0 +1,18 @@
+{
+  "title": "CKA – ETCD Backup and Restore",
+  "description": "Perform a full ETCD backup and restore using etcdctl.",
+  "difficulty": "hard",
+  "time": "15 minutes",
+  "steps": [
+    {
+      "title": "Backup ETCD",
+      "text": "step1/text.md",
+      "verify": "step1/verify.sh"
+    },
+    {
+      "title": "Restore ETCD",
+      "text": "step2/text.md",
+      "verify": "step2/verify.sh"
+    }
+  ]
+}
