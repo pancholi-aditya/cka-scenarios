@@ -1,0 +1,26 @@
+{
+  "title": "Inspect cert-manager CRDs and Certificates",
+  "description": "List cert-manager CRDs and extract certificate subject fields",
+  "difficulty": "intermediate",
+  "time": "15 minutes",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "List cert-manager CRDs",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Extract Certificate subjects",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      }
+    ]
+  },
+  "backend": {
+    "imageid": "kubernetes"
+  }
+}
