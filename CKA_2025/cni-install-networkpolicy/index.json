@@ -1,0 +1,26 @@
+{
+  "title": "Install CNI with NetworkPolicy Support",
+  "description": "Install Flannel or Calico CNI with NetworkPolicy support",
+  "difficulty": "intermediate",
+  "time": "20 minutes",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Install CNI",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Verify NetworkPolicy support",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      }
+    ]
+  },
+  "backend": {
+    "imageid": "kubernetes"
+  }
+}
