@@ -1,0 +1,13 @@
+{
+  "title": "CKA – NGINX Ingress Configuration",
+  "description": "Expose a service using an NGINX Ingress with host and path routing.",
+  "difficulty": "intermediate",
+  "time": "10 minutes",
+  "steps": [
+    {
+      "title": "Create the Ingress",
+      "text": "step1/text.md",
+      "verify": "step1/verify.sh"
+    }
+  ]
+}
