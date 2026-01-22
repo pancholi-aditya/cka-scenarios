@@ -1,0 +1,13 @@
+{
+  "title": "CKA – Kubectl Contexts",
+  "description": "Work with kubeconfig contexts using kubectl and without kubectl.",
+  "difficulty": "easy",
+  "time": "5 minutes",
+  "steps": [
+    {
+      "title": "Work with contexts",
+      "text": "step1/text.md",
+      "verify": "step1/verify.sh"
+    }
+  ]
+}
