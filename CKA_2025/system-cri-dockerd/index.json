@@ -1,0 +1,26 @@
+{
+  "title": "Prepare System for Kubernetes",
+  "description": "Install cri-dockerd and configure required system parameters",
+  "difficulty": "intermediate",
+  "time": "20 minutes",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Install and enable cri-dockerd",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Configure kernel networking parameters",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      }
+    ]
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}
