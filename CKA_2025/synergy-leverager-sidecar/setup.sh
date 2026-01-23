@@ -1,5 +1,8 @@
 #!/bin/bash
-set -e
+set -eux
+
+echo "SETUP_RAN_AT=$(date)" | tee /tmp/SETUP_RAN
+
 
 kubectl wait --for=condition=Ready nodes --all --timeout=60s
 
