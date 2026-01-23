@@ -5,7 +5,8 @@
   "time": "20 minutes",
   "details": {
     "intro": {
-      "text": "intro.md"
+      "text": "intro.md",
+      "setup": "setup.sh"
     },
     "steps": [
       {
@@ -31,6 +32,6 @@
     ]
   },
   "backend": {
-    "imageid": "kubernetes"
+    "imageid": "kubernetes-kubeadm-1node"
   }
 }
