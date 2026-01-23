@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+kubectl wait --for=condition=Ready nodes --all --timeout=60s
+
 kubectl apply -f - <<EOF
 apiVersion: apps/v1
 kind: Deployment
@@ -22,13 +24,11 @@ spec:
         volumeMounts:
         - name: log-volume
           mountPath: /var/log
-        command:
-        - /bin/sh
-        - -c
-        - |
-          echo "synergy leverager started" >> /var/log/synergy-leverager.log
-          sleep 3600
+        command: ["/bin/sh", "-c", "echo started >> /var/log/app.log && sleep 3600"]
       volumes:
       - name: log-volume
         emptyDir: {}
 EOF
+
+kubectl rollout status deploy/synergy-leverager --timeout=60s
+echo "Setup complete."
