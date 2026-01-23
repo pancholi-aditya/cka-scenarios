@@ -26,7 +26,7 @@
     ]
   },
   "backend": {
-    "imageID": "kubernetes-kubeadm-1node",
+    "imageid": "kubernetes-kubeadm-1node",
     "setup": "setup.sh"
   }
 }
