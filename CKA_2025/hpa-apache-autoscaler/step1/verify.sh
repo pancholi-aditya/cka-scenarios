@@ -27,5 +27,13 @@ if [ "$TARGET_KIND" != "Deployment" ] || [ "$TARGET_NAME" != "apache-server" ]; 
   exit 1
 fi
 
-echo "HPA configuration verified successfully"
+# Check scaleDown stabilization window
+STABILIZATION_WINDOW=$(kubectl get hpa apache-server -n auto-scale \
+  -o jsonpath='{.spec.behavior.scaleDown.stabilizationWindowSeconds}')
 
+if [ "$STABILIZATION_WINDOW" != "300" ]; then
+  echo "Expected scaleDown stabilization window 300s, found ${STABILIZATION_WINDOW:-none}"
+  exit 1
+fi
+
+echo "HPA configuration including stabilization window verified successfully"

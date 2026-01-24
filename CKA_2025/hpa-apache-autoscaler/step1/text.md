@@ -6,6 +6,8 @@ Create a **Horizontal Pod Autoscaler** named **`apache-server`** in the **`auto-
 
 - Target the existing Deployment `apache-server`
 - CPU utilization target: **50%**
+- min 1 and max 10 pods
+- stabilizationWindowSeconds: 300
 
 > Use the method you prefer (imperative or declarative).
 
