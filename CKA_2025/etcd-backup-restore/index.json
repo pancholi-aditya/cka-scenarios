@@ -3,22 +3,27 @@
   "description": "Perform a full ETCD backup and restore using etcdctl.",
   "difficulty": "hard",
   "time": "15 minutes",
-  "intro": {
-    "text": "intro.md",
-    "setup": "setup.sh"
-  },
-  "steps": [
-    {
-      "title": "Backup ETCD",
-      "text": "step1/text.md",
-      "verify": "step1/verify.sh"
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "setup.sh"
     },
-    {
-      "title": "Restore ETCD",
-      "text": "step2/text.md",
-      "verify": "step2/verify.sh"
+    "steps": [
+      {
+        "title": "Backup ETCD",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Restore ETCD",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
     }
-  ],
+  },
   "backend": {
     "imageid": "kubernetes"
   }
