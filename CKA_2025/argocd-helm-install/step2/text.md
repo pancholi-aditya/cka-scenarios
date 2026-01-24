@@ -16,6 +16,8 @@ Render Helm templates for Argo CD with these requirements:
 Render the Helm templates using the following command:
 
 ```bash
+> helm search repo argo
+
 > helm template argocd argo/argo-cd \
   --version 7.7.3 \
   --namespace argocd \
