@@ -3,6 +3,11 @@
   "description": "Perform a full ETCD backup and restore using etcdctl.",
   "difficulty": "hard",
   "time": "15 minutes",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "setup": "setup.sh"
+    },
   "steps": [
     {
       "title": "Backup ETCD",
