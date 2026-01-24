@@ -12,7 +12,7 @@ metadata:
   name: mariadb-pv
 spec:
   capacity:
-    storage: 250Mi
+    storage: 500Mi
   accessModes:
   - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
