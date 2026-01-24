@@ -71,8 +71,26 @@ kubectl autoscale deployment apache-server \
   --cpu-percent=50 \
   --min=1 \
   --max=10 \
-  -n auto-scale
+  -n auto-scale\
+  --dry-run=client\
+  -o yaml > hpa.yaml
 ```
+
+add stabilizationWindow to file:\
+
+```bash
+> vim hpa.yaml
+```
+
+add this section
+
+```yaml
+behavior:
+  scaleDown:
+    stabilizationWindowSeconds: 300
+```
+
+Save and apply.
 
 Verify that the HPA is created:
 
@@ -95,6 +113,9 @@ spec:
     name: apache-server
   minReplicas: 1
   maxReplicas: 10
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 300
   metrics:
     - type: Resource
       resource:
