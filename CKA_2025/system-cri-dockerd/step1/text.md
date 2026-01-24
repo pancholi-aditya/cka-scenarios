@@ -10,9 +10,13 @@ ensure the service is enabled and running.
 
 <details>
 <summary><strong>Solution</strong></summary>
-
+```bash
 dpkg -i /cri-dockerd_0.3.9.3-0.ubuntu-focal_amd64.deb
 
 systemctl daemon-reload
 systemctl enable cri-docker.service
 systemctl start cri-docker.service
+
+```
+
+```
