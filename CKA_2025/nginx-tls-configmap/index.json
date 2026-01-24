@@ -3,17 +3,19 @@
   "description": "Restrict NGINX to TLS 1.3 only using ConfigMap-based configuration.",
   "difficulty": "intermediate",
   "time": "12 minutes",
-  "intro": {
-    "text": "intro.md",
-    "setup": "setup.sh"
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "setup.sh"
+    },
+    "steps": [
+      {
+        "title": "Restrict TLS to version 1.3",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      }
+    ]
   },
-  "steps": [
-    {
-      "title": "Restrict TLS to version 1.3",
-      "text": "step1/text.md",
-      "verify": "step1/verify.sh"
-    }
-  ],
   "backend": {
     "imageid": "kubernetes"
   }
