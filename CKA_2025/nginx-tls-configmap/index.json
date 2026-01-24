@@ -1,5 +1,5 @@
 {
-  "title": "CKA – NGINX TLS Hardening via ConfigMap",
+  "title": "NGINX TLS Hardening via ConfigMap",
   "description": "Restrict NGINX to TLS 1.3 only using ConfigMap-based configuration.",
   "difficulty": "intermediate",
   "time": "12 minutes",
