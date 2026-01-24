@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+# Install Gateway API CRDs (required for Gateway resources)
+kubectl apply -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.0.0/standard-install.yaml
+
 kubectl create namespace web 2>/dev/null || true
 
 # TLS secret used by the Ingress
