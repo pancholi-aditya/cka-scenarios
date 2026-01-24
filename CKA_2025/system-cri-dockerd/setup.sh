@@ -17,3 +17,6 @@ sysctl -w net.ipv4.ip_forward=0 >/dev/null 2>&1 || true
 # Remove persistent sysctl configs if present
 rm -f /etc/sysctl.d/99-kubernetes-cri.conf >/dev/null 2>&1 || true
 rm -f /etc/sysctl.d/k8s.conf >/dev/null 2>&1 || true
+
+
+wget https://github.com/Mirantis/cri-dockerd/releases/download/v0.3.9/cri-dockerd_0.3.9.3-0.ubuntu-focal_amd64.deb -O /cri-dockerd_0.3.9.3-0.ubuntu-focal_amd64.deb
