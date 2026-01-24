@@ -3,17 +3,20 @@
   "description": "Create a new user using CSR and grant Pod permissions via RBAC.",
   "difficulty": "intermediate",
   "time": "12 minutes",
-  "intro": {
-    "text": "intro.md",
-    "setup": "setup.sh"
+
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "setup.sh"
+    },
+    "steps": [
+      {
+        "title": "Create user and configure RBAC",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      }
+    ]
   },
-  "steps": [
-    {
-      "title": "Create user and configure RBAC",
-      "text": "step1/text.md",
-      "verify": "step1/verify.sh"
-    }
-  ],
   "backend": {
     "imageid": "kubernetes"
   }
