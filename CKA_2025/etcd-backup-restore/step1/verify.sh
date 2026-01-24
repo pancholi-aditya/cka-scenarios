@@ -1,9 +1,3 @@
-
----
-
-### `step1/verify.sh` (silent)
-
-```bash
 #!/bin/bash
 set -e
 
