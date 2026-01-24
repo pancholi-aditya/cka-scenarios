@@ -1,13 +1,20 @@
 {
-  "title": "CKA – Pod Troubleshooting",
+  "title": "Pod Troubleshooting",
   "description": "Diagnose and fix a non-running Pod while maintaining availability.",
   "difficulty": "intermediate",
   "time": "10 minutes",
+  "intro": {
+    "text": "intro.md",
+    "setup": "setup.sh"
+  },
   "steps": [
     {
       "title": "Fix the broken Pod",
       "text": "step1/text.md",
       "verify": "step1/verify.sh"
     }
-  ]
+  ],
+  "backend": {
+    "imageid": "kubernetes"
+  }
 }
