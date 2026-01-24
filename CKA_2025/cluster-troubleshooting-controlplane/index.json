@@ -1,13 +1,12 @@
 {
-  "title": "CKA – Cluster Troubleshooting (Control Plane)",
+  "title": "Cluster Troubleshooting (Control Plane)",
   "description": "Diagnose and recover a broken Kubernetes control plane after migration.",
   "difficulty": "hard",
   "time": "15 minutes",
-  "details": {
-    "intro": {
-      "text": "intro.md",
-      "setup": "setup.sh"
-    },
+  "intro": {
+    "text": "intro.md",
+    "setup": "setup.sh"
+  },
   "steps": [
     {
       "title": "Restore cluster health",

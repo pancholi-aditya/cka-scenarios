@@ -1,5 +1,5 @@
 {
-  "title": "CKA – ETCD Backup and Restore",
+  "title": "ETCD Backup and Restore",
   "description": "Perform a full ETCD backup and restore using etcdctl.",
   "difficulty": "hard",
   "time": "15 minutes",
