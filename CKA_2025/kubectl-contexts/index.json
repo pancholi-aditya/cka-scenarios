@@ -3,14 +3,20 @@
   "description": "Work with kubeconfig contexts using kubectl and without kubectl.",
   "difficulty": "easy",
   "time": "5 minutes",
-  "steps": [
-    {
-      "title": "Work with contexts",
-      "text": "step1/text.md",
-      "verify": "step1/verify.sh"
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "setup.sh"
+    },
+    "steps": [
+      {
+        "title": "Work with contexts",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      }
+    ],
+    "backend": {
+      "imageid": "kubernetes"
     }
-  ],
-  "backend": {
-    "imageid": "kubernetes"
   }
 }
