@@ -2,7 +2,7 @@
 
 Add the official Argo CD Helm repository with the name `argo`.
 
-https://github.com/argoproj/argo-cd
+https://argoproj.github.io/argo-helm
 
 Ensure the repository is added successfully.
 
