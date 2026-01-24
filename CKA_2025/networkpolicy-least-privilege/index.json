@@ -1,13 +1,20 @@
 {
-  "title": "CKA – NetworkPolicy Least Privilege (Choose Correct YAML)",
+  "title": "NetworkPolicy Least Privilege (Choose Correct YAML)",
   "description": "Select and apply the correct NetworkPolicy from multiple provided options.",
   "difficulty": "intermediate",
   "time": "10 minutes",
+  "intro": {
+    "text": "intro.md",
+    "setup": "setup.sh"
+  },
   "steps": [
     {
       "title": "Choose and apply the correct NetworkPolicy",
       "text": "step1/text.md",
       "verify": "step1/verify.sh"
     }
-  ]
+  ],
+  "backend": {
+    "imageid": "kubernetes"
+  }
 }

@@ -1,5 +1,5 @@
 {
-  "title": "CKA – NetworkPolicy Enforcement",
+  "title": "NetworkPolicy Enforcement",
   "description": "Restrict Pod communication using NetworkPolicy with namespace isolation.",
   "difficulty": "intermediate",
   "time": "10 minutes",
