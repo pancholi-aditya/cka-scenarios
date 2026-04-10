@@ -1,62 +1,57 @@
-
----
-
-# ✅ UPDATED DYNAMIC VERIFICATION (NO HARDCODING)
-
-## 📄 `step2/verify.sh` (FULL FILE)
-
-This verification checks **logic**, not fixed numbers.
-
-```bash
 #!/bin/bash
+set -e
 
-# Get allocatable CPU (in millicores) and memory (in Ki)
+to_millicores() {
+  local value="$1"
+  if [[ "$value" == *m ]]; then
+    echo "${value%m}"
+  else
+    echo $((value * 1000))
+  fi
+}
+
+to_mib() {
+  local value="$1"
+  case "$value" in
+    *Ki) echo $((${value%Ki} / 1024)) ;;
+    *Mi) echo "${value%Mi}" ;;
+    *Gi) echo $((${value%Gi} * 1024)) ;;
+    *) echo "$value" ;;
+  esac
+}
+
 NODE=$(kubectl get nodes -o jsonpath='{.items[0].metadata.name}')
 
 ALLOC_CPU=$(kubectl get node "$NODE" -o jsonpath='{.status.allocatable.cpu}')
 ALLOC_MEM=$(kubectl get node "$NODE" -o jsonpath='{.status.allocatable.memory}')
 
-# Convert CPU to millicores
-if [[ "$ALLOC_CPU" == *"m" ]]; then
-  ALLOC_CPU_MC=${ALLOC_CPU%m}
-else
-  ALLOC_CPU_MC=$((ALLOC_CPU * 1000))
-fi
+ALLOC_CPU_MC=$(to_millicores "$ALLOC_CPU")
+ALLOC_MEM_MI=$(to_mib "$ALLOC_MEM")
 
-# Convert memory to Mi
-ALLOC_MEM_MI=$(( ${ALLOC_MEM%Ki} / 1024 ))
-
-# Read requested resources from deployment
 REQ_CPU=$(kubectl get deployment wordpress -n wordpress \
   -o jsonpath='{.spec.template.spec.containers[0].resources.requests.cpu}')
 
 REQ_MEM=$(kubectl get deployment wordpress -n wordpress \
   -o jsonpath='{.spec.template.spec.containers[0].resources.requests.memory}')
 
-# Convert requested CPU
-REQ_CPU_MC=${REQ_CPU%m}
+REQ_CPU_MC=$(to_millicores "$REQ_CPU")
+REQ_MEM_MI=$(to_mib "$REQ_MEM")
 
-# Convert requested memory
-REQ_MEM_MI=${REQ_MEM%Mi}
-
-# Calculate total requested for 3 pods
 TOTAL_REQ_CPU=$((REQ_CPU_MC * 3))
 TOTAL_REQ_MEM=$((REQ_MEM_MI * 3))
 
-# Ensure overhead exists (at least 10%)
-CPU_OK=$((TOTAL_REQ_CPU * 100 / ALLOC_CPU_MC))
-MEM_OK=$((TOTAL_REQ_MEM * 100 / ALLOC_MEM_MI))
+CPU_PERCENT=$((TOTAL_REQ_CPU * 100 / ALLOC_CPU_MC))
+MEM_PERCENT=$((TOTAL_REQ_MEM * 100 / ALLOC_MEM_MI))
 
-# Verify identical requests in initContainers
 kubectl get deployment wordpress -n wordpress -o json | \
-jq -e '
-.spec.template.spec.initContainers[].resources.requests ==
-.spec.template.spec.containers[].resources.requests
-' >/dev/null 2>&1 || exit 1
+  jq -e '
+    .spec.template.spec.initContainers[].resources.requests ==
+    .spec.template.spec.containers[].resources.requests
+  ' >/dev/null
 
-# Ensure total usage is below 90% (overhead preserved)
-if [ "$CPU_OK" -lt 90 ] && [ "$MEM_OK" -lt 90 ]; then
+if [ "$CPU_PERCENT" -lt 90 ] && [ "$MEM_PERCENT" -lt 90 ]; then
   exit 0
-else
-  exit 1
 fi
+
+echo "Resource requests are too high for 3 replicas with node overhead preserved"
+exit 1

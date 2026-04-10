@@ -63,4 +63,69 @@ EOF
 kubectl -n frontend rollout status deployment/frontend
 kubectl -n backend rollout status deployment/backend
 
+echo "[SETUP] Creating NetworkPolicy option files..."
+mkdir -p /root/manifests
+
+cat <<EOF > /root/manifests/np-option1.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: backend-access
+  namespace: backend
+spec:
+  podSelector:
+    matchLabels:
+      app: backend
+  policyTypes:
+    - Ingress
+  ingress:
+    - {}
+EOF
+
+cat <<EOF > /root/manifests/np-option2.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: backend-access
+  namespace: backend
+spec:
+  podSelector:
+    matchLabels:
+      app: backend
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              name: frontend
+          podSelector:
+            matchLabels:
+              app: frontend
+EOF
+
+cat <<EOF > /root/manifests/np-option3.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: backend-access
+  namespace: backend
+spec:
+  podSelector:
+    matchLabels:
+      app: backend
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              name: frontend
+          podSelector:
+            matchLabels:
+              app: frontend
+          ipBlock:
+            cidr: 10.244.0.0/16
+EOF
+
 echo "[SETUP] Environment ready."

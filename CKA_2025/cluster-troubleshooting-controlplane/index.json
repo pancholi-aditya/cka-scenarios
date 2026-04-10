@@ -3,18 +3,20 @@
   "description": "Diagnose and recover a broken Kubernetes control plane after migration.",
   "difficulty": "hard",
   "time": "15 minutes",
-  "intro": {
-    "text": "intro.md",
-    "setup": "setup.sh"
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "setup.sh"
+    },
+    "steps": [
+      {
+        "title": "Restore cluster health",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      }
+    ]
   },
-  "steps": [
-    {
-      "title": "Restore cluster health",
-      "text": "step1/text.md",
-      "verify": "step1/verify.sh"
-    }
-  ],
   "backend": {
-    "imageid": "kubernetes"
+    "imageid": "kubernetes-kubeadm-1node"
   }
 }

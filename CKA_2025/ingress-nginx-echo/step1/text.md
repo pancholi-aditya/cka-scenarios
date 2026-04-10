@@ -61,10 +61,16 @@ kubectl apply -f ingress.yaml
 
 ### Step 2: Verify the Ingress
 
-Test access using the following command:
+Start a local port-forward:
 
 ```bash
-curl -o /dev/null -s -w "%{http_code}\n" http://example.org/echo
+kubectl -n ingress-nginx port-forward svc/ingress-nginx-controller 18080:80
+```
+
+Then test access from another terminal:
+
+```bash
+curl -H "Host: www.example.org" -o /dev/null -s -w "%{http_code}\n" http://127.0.0.1:18080/echo
 ```
 
 A successful configuration will return:

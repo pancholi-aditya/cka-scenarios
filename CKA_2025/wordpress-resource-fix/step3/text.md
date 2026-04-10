@@ -7,5 +7,5 @@ ensure all Pods are Running and Ready.
 <summary><strong>Solution</strong></summary>
 
 ```bash
-> kubectl scale deployment wordpress -n wordpress --replicas=3
+kubectl scale deployment wordpress -n wordpress --replicas=3
 ```

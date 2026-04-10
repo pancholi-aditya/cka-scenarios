@@ -69,9 +69,9 @@ Allocatable:
 
     ```yaml
     resources:
-    requests:
-      cpu: "500m"
-      memory: "1Gi"
+      requests:
+        cpu: "500m"
+        memory: "1Gi"
     ```
 
 Ensure the values are identical everywhere.

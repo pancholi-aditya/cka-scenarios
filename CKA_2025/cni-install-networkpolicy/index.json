@@ -6,7 +6,7 @@
   "details": {
     "intro": {
       "text": "intro.md",
-      "setup": "setup.sh"
+      "background": "setup.sh"
     },
     "steps": [
       {
@@ -22,6 +22,6 @@
     ]
   },
   "backend": {
-    "imageid": "kubernetes"
+    "imageid": "kubernetes-kubeadm-1node"
   }
 }

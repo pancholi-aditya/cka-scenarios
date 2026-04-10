@@ -85,8 +85,8 @@ The kubelet will automatically restart the kube-apiserver Pod.
 Wait a few seconds, then verify:
 
 ```bash
-> kubectl get nodes
-> kubectl get pods -n kube-system
+kubectl get nodes
+kubectl get pods -n kube-system
 ```
 
 All control plane components should now be running, and the cluster

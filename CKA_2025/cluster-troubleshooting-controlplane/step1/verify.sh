@@ -1,10 +1,3 @@
-
----
-
-## 6️⃣ `step1/verify.sh`  
-(Checks **real recovery**, not commands)
-
-```bash
 #!/bin/bash
 set -e
 
