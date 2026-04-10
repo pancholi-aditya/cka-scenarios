@@ -1,10 +1,10 @@
-# kubelet CIS Benchmark Remediation
+# kube-bench kubelet CIS Remediation
 
-A CIS Benchmark scan has reported insecure kubelet settings on a
-kubeadm-provisioned Kubernetes cluster.
+A kubeadm-provisioned Kubernetes cluster must be checked with `kube-bench`.
 
-You must update the kubelet configuration and restart the affected component so
-the secure settings take effect.
+Use the CIS Benchmark findings from `kube-bench` to identify insecure kubelet
+settings, update the kubelet configuration, and restart the affected component
+so the secure settings take effect.
 
 Use the available Kubernetes documentation for kubeadm, kubelet, and etcd if
 needed.

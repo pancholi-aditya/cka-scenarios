@@ -1,6 +1,6 @@
 {
-  "title": "Fix kubelet CIS Benchmark Findings",
-  "description": "Resolve kubelet authentication and authorization findings from a CIS Benchmark scan.",
+  "title": "Run kube-bench and Harden kubelet",
+  "description": "Use kube-bench to find and resolve kubelet authentication and authorization findings.",
   "difficulty": "intermediate",
   "time": "15 minutes",
   "details": {
@@ -10,9 +10,14 @@
     },
     "steps": [
       {
-        "title": "Harden kubelet configuration",
+        "title": "Check CIS findings with kube-bench",
         "text": "step1/text.md",
         "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Harden kubelet configuration",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
       }
     ]
   },
