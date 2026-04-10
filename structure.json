@@ -1,0 +1,16 @@
+{
+  "title": "Kubernetes Certification Practice",
+  "description": "Hands-on Killercoda scenarios for CKA and CKS preparation.",
+  "items": [
+    {
+      "path": "CKA_2026",
+      "title": "CKA 2026",
+      "description": "CKA practice scenarios based on Kubernetes administration tasks."
+    },
+    {
+      "path": "CKS_2026",
+      "title": "CKS 2026",
+      "description": "CKS practice scenarios based on Kubernetes security tasks."
+    }
+  ]
+}
