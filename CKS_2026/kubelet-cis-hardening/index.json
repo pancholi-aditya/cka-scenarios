@@ -1,0 +1,22 @@
+{
+  "title": "Fix kubelet CIS Benchmark Findings",
+  "description": "Resolve kubelet authentication and authorization findings from a CIS Benchmark scan.",
+  "difficulty": "intermediate",
+  "time": "15 minutes",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "setup.sh"
+    },
+    "steps": [
+      {
+        "title": "Harden kubelet configuration",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      }
+    ]
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1node"
+  }
+}
