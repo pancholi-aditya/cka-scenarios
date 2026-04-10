@@ -1,0 +1,22 @@
+{
+  "title": "Fix Dockerfile and Deployment Security Context",
+  "description": "Modify one insecure Dockerfile instruction and one insecure Deployment field without building the image.",
+  "difficulty": "intermediate",
+  "time": "10 minutes",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "setup.sh"
+    },
+    "steps": [
+      {
+        "title": "Fix insecure user settings",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      }
+    ]
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1node"
+  }
+}
