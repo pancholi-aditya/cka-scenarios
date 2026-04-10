@@ -1,0 +1,22 @@
+{
+  "title": "Configure ImagePolicyWebhook Scanner",
+  "description": "Integrate a container image scanner with kube-apiserver using ImagePolicyWebhook.",
+  "difficulty": "hard",
+  "time": "20 minutes",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "setup.sh"
+    },
+    "steps": [
+      {
+        "title": "Configure ImagePolicyWebhook",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      }
+    ]
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1node"
+  }
+}

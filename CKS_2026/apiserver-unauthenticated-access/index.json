@@ -1,0 +1,22 @@
+{
+  "title": "Secure kube-apiserver Authentication",
+  "description": "Harden kube-apiserver authentication, authorization, and admission controller settings.",
+  "difficulty": "intermediate",
+  "time": "15 minutes",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "setup.sh"
+    },
+    "steps": [
+      {
+        "title": "Secure kube-apiserver configuration",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      }
+    ]
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1node"
+  }
+}
