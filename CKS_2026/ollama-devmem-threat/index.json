@@ -1,0 +1,22 @@
+{
+  "title": "Stop the Misbehaving ollama Pod",
+  "description": "Identify the pod accessing /dev/mem and scale only its Deployment to zero replicas.",
+  "difficulty": "intermediate",
+  "time": "15 minutes",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "setup.sh"
+    },
+    "steps": [
+      {
+        "title": "Identify and stop the threat",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      }
+    ]
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1node"
+  }
+}
